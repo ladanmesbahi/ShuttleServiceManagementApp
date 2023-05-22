@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShuttleServiceManagementApp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShuttleServiceManagementApp.Shared", "ShuttleServiceManagementApp\Shared\ShuttleServiceManagementApp.Shared.csproj", "{2B22F5DB-4E14-4619-9C35-D7A9E365A5D0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShuttleServiceManagementApp.Domain", "ShuttleServiceManagementApp.Domain\ShuttleServiceManagementApp.Domain.csproj", "{88D40CCF-45C0-4DCC-9E76-9AB081AB5098}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShuttleServiceManagementApp.Persistence", "ShuttleServiceManagementApp.Persistence\ShuttleServiceManagementApp.Persistence.csproj", "{9DCBA5B7-93F5-4418-9F53-005323E4D166}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{2B22F5DB-4E14-4619-9C35-D7A9E365A5D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2B22F5DB-4E14-4619-9C35-D7A9E365A5D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2B22F5DB-4E14-4619-9C35-D7A9E365A5D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88D40CCF-45C0-4DCC-9E76-9AB081AB5098}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88D40CCF-45C0-4DCC-9E76-9AB081AB5098}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88D40CCF-45C0-4DCC-9E76-9AB081AB5098}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88D40CCF-45C0-4DCC-9E76-9AB081AB5098}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9DCBA5B7-93F5-4418-9F53-005323E4D166}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9DCBA5B7-93F5-4418-9F53-005323E4D166}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9DCBA5B7-93F5-4418-9F53-005323E4D166}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9DCBA5B7-93F5-4418-9F53-005323E4D166}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
