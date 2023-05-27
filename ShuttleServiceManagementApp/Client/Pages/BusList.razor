@@ -1,0 +1,41 @@
+﻿@page "/busList"
+@using ShuttleServiceManagementApp.Client.Abstractions.Services;
+@using ShuttleServiceManagementApp.Client.Components;
+@inject IBusService BusService;
+@inject NavigationManager NavigationManager;
+@inject IJSRuntime JSRuntime;
+@inject IDialogService DialogService;
+@inject ISnackbar Snackbar;
+
+<h3 dir="rtl" Style="font-family:'B Koodak'">لیست اتوبوس ها</h3>
+<MudLink Href="/createBus" Class="btn btn-outline-primary" Style="font-family:'B Koodak'">جدید</MudLink>
+<br /><br />
+<div class="container" dir="rtl">
+    @if (BusService.Buses == null)
+{
+	<p><em>Loading...</em></p>
+}
+else
+{
+		<MudTable Elevation="25" Items="BusService.Buses" Style="font-family:'B Koodak'">
+			<HeaderContent>
+				<MudTh>نام راننده</MudTh>
+				<MudTh> ظرفیت</MudTh>
+				<MudTh>عملیات</MudTh>
+			</HeaderContent>
+			<RowTemplate>
+				@*<MudTd DataLabel="Id">@context.Id</MudTd>*@
+				<MudTd DataLabel="FirstName">@context.DriverName</MudTd>
+				<MudTd DataLabel="LastName">@context.Capacity</MudTd>
+				<MudTd DataLabel="">
+					@*<MudFab @onclick="@(()=>Edit(@context.Id))" Color="Color.Primary" Icon="@Icons.Material.Filled.Edit" Size="Size.Small" IconSize="Size.Small" />*@
+					<MudFab @onclick="@(()=>Delete_Click(context.Id))" Color="Color.Secondary" Icon="@Icons.Material.Filled.Delete" Size="Size.Small" IconSize="Size.Small" />
+				</MudTd>
+			</RowTemplate>
+		</MudTable>
+
+}
+	<Confirm @ref="DeleteConfirmation" ConfirmationChanged="ConfirmDelete_Click"
+			 ConfirmationMessage=@($"آیا از حذف \"{bus.DriverName}\" مطمئنید؟")>
+	</Confirm>
+</div>

@@ -1,0 +1,20 @@
+﻿@page "/createBus"
+@using ShuttleServiceManagementApp.Client.Abstractions.Services;
+@inject IBusService BusService;
+@inject NavigationManager NavigationManager;
+<h3 dir="rtl" class="persian-font">افزودن اتوبوس</h3>
+<br />
+<EditForm Model="@bus" OnValidSubmit="AddBus" dir="rtl">
+    <DataAnnotationsValidator></DataAnnotationsValidator>
+    <div class="mb-0">
+        <label for="driverName" class="persian-font">نام راننده</label>
+        <InputText id="driverName" @bind-Value="@bus.DriverName" class="form-control persian-font"></InputText>
+    </div>
+    <div class="mb-0">
+        <label for="capacity" class="persian-font">ظرفیت</label>
+        <InputNumber id="capacity" @bind-Value="@bus.Capacity" class="form-control persian-font"></InputNumber>
+    </div>
+    <br />
+    <button type="submit" class="btn btn-primary float-start persian-font">ذخیره</button>
+    <ValidationSummary></ValidationSummary>
+</EditForm>

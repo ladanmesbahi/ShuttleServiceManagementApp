@@ -1,8 +1,21 @@
-using Microsoft.AspNetCore.ResponseCompression;
+using Scrutor;
+using ShuttleServiceManagementApp.Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.Scan(selector => selector.FromAssemblies(ShuttleServiceManagementApp.Persistence.AssemblyReference.Assembly)
+.AddClasses(false)
+.UsingRegistrationStrategy(RegistrationStrategy.Skip)
+.AsImplementedInterfaces()
+.WithScopedLifetime());
+
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblyContaining(typeof(ShuttleServiceManagementApp.Application.AssemblyReference)));
+
+
+builder.Services.AddDbContext<AppDbContext>();
+
+
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();

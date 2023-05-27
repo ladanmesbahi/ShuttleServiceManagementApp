@@ -1,10 +1,16 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Re\**" />
+    <EmbeddedResource Remove="Re\**" />
+    <None Remove="Re\**" />
+  </ItemGroup>
 
   <ItemGroup>
     <SupportedPlatform Include="browser" />

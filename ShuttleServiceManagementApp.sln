@@ -3,15 +3,22 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShuttleServiceManagementApp.Server", "ShuttleServiceManagementApp\Server\ShuttleServiceManagementApp.Server.csproj", "{453CCED5-2CFE-4216-A4DB-F6797DDAF277}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShuttleServiceManagementApp.Server", "ShuttleServiceManagementApp\Server\ShuttleServiceManagementApp.Server.csproj", "{453CCED5-2CFE-4216-A4DB-F6797DDAF277}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4DADF227-E4DD-4709-A1D2-6372B1D3D64A} = {4DADF227-E4DD-4709-A1D2-6372B1D3D64A}
+		{88D40CCF-45C0-4DCC-9E76-9AB081AB5098} = {88D40CCF-45C0-4DCC-9E76-9AB081AB5098}
+		{9DCBA5B7-93F5-4418-9F53-005323E4D166} = {9DCBA5B7-93F5-4418-9F53-005323E4D166}
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShuttleServiceManagementApp.Client", "ShuttleServiceManagementApp\Client\ShuttleServiceManagementApp.Client.csproj", "{BC9FC3B3-9217-4414-B30B-A276C627D239}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShuttleServiceManagementApp.Client", "ShuttleServiceManagementApp\Client\ShuttleServiceManagementApp.Client.csproj", "{BC9FC3B3-9217-4414-B30B-A276C627D239}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShuttleServiceManagementApp.Shared", "ShuttleServiceManagementApp\Shared\ShuttleServiceManagementApp.Shared.csproj", "{2B22F5DB-4E14-4619-9C35-D7A9E365A5D0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShuttleServiceManagementApp.Shared", "ShuttleServiceManagementApp\Shared\ShuttleServiceManagementApp.Shared.csproj", "{2B22F5DB-4E14-4619-9C35-D7A9E365A5D0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShuttleServiceManagementApp.Domain", "ShuttleServiceManagementApp.Domain\ShuttleServiceManagementApp.Domain.csproj", "{88D40CCF-45C0-4DCC-9E76-9AB081AB5098}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShuttleServiceManagementApp.Domain", "ShuttleServiceManagementApp.Domain\ShuttleServiceManagementApp.Domain.csproj", "{88D40CCF-45C0-4DCC-9E76-9AB081AB5098}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShuttleServiceManagementApp.Persistence", "ShuttleServiceManagementApp.Persistence\ShuttleServiceManagementApp.Persistence.csproj", "{9DCBA5B7-93F5-4418-9F53-005323E4D166}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShuttleServiceManagementApp.Persistence", "ShuttleServiceManagementApp.Persistence\ShuttleServiceManagementApp.Persistence.csproj", "{9DCBA5B7-93F5-4418-9F53-005323E4D166}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShuttleServiceManagementApp.Application", "ShuttleServiceManagementApp.Application\ShuttleServiceManagementApp.Application.csproj", "{4DADF227-E4DD-4709-A1D2-6372B1D3D64A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +46,10 @@ Global
 		{9DCBA5B7-93F5-4418-9F53-005323E4D166}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9DCBA5B7-93F5-4418-9F53-005323E4D166}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9DCBA5B7-93F5-4418-9F53-005323E4D166}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4DADF227-E4DD-4709-A1D2-6372B1D3D64A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4DADF227-E4DD-4709-A1D2-6372B1D3D64A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4DADF227-E4DD-4709-A1D2-6372B1D3D64A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4DADF227-E4DD-4709-A1D2-6372B1D3D64A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -7,10 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MediatR" Version="12.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="7.0.4" />
+    <PackageReference Include="Scrutor" Version="4.2.2" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\ShuttleServiceManagementApp.Application\ShuttleServiceManagementApp.Application.csproj" />
+    <ProjectReference Include="..\..\ShuttleServiceManagementApp.Persistence\ShuttleServiceManagementApp.Persistence.csproj" />
     <ProjectReference Include="..\Client\ShuttleServiceManagementApp.Client.csproj" />
     <ProjectReference Include="..\Shared\ShuttleServiceManagementApp.Shared.csproj" />
   </ItemGroup>
