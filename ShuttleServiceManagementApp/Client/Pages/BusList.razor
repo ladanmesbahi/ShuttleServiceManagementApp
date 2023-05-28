@@ -7,10 +7,9 @@
 @inject IDialogService DialogService;
 @inject ISnackbar Snackbar;
 
-<h3 dir="rtl" Style="font-family:'B Koodak'">لیست اتوبوس ها</h3>
-<MudLink Href="/createBus" Class="btn btn-outline-primary" Style="font-family:'B Koodak'">جدید</MudLink>
-<br /><br />
-<div class="container" dir="rtl">
+<div class="container mt-5" dir="rtl">
+	<h3 dir="rtl" Style="font-family:'B Koodak'">لیست اتوبوس ها</h3>
+	<MudLink Href="/createBus" Class="btn btn-outline-primary mt-10 mb-4" Style="font-family:'B Koodak'">جدید</MudLink>
     @if (BusService.Buses == null)
 {
 	<p><em>Loading...</em></p>
