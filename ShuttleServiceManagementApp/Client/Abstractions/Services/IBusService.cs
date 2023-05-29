@@ -1,5 +1,6 @@
-﻿using ShuttleServiceManagementApp.Shared.Responses;
+﻿using ShuttleServiceManagementApp.Domain.Shared;
 using ShuttleServiceManagementApp.Shared.Requests;
+using ShuttleServiceManagementApp.Shared.Responses;
 
 namespace ShuttleServiceManagementApp.Client.Abstractions.Services
 {
@@ -7,8 +8,8 @@ namespace ShuttleServiceManagementApp.Client.Abstractions.Services
 	{
 		List<BusResponse> Buses { get; set; }
 		event Action BusListChanged;
-		Task<Guid> CreateBus(RegisterBusRequest bus);
-		Task<HttpResponseMessage> Delete(Guid id);
+		Task<Result> CreateBus(RegisterBusRequest bus);
+		Task<Result> Delete(Guid id);
 		Task GetBuses();
 	}
 }

@@ -3,7 +3,6 @@
 @using ShuttleServiceManagementApp.Client.Components;
 @inject IBusService BusService;
 @inject NavigationManager NavigationManager;
-@inject IJSRuntime JSRuntime;
 @inject IDialogService DialogService;
 @inject ISnackbar Snackbar;
 
@@ -17,13 +16,17 @@
 else
 {
 		<MudTable Elevation="25" Items="BusService.Buses" Style="font-family:'B Koodak'">
+			<ColGroup>
+				<col />
+				<col />
+				<col width="50px" />
+			</ColGroup>
 			<HeaderContent>
 				<MudTh>نام راننده</MudTh>
 				<MudTh> ظرفیت</MudTh>
 				<MudTh>عملیات</MudTh>
 			</HeaderContent>
 			<RowTemplate>
-				@*<MudTd DataLabel="Id">@context.Id</MudTd>*@
 				<MudTd DataLabel="نام راننده">@context.DriverName</MudTd>
 				<MudTd DataLabel="ظرفیت">@context.Capacity</MudTd>
 				<MudTd DataLabel="">
@@ -35,6 +38,6 @@ else
 
 }
 	<Confirm @ref="DeleteConfirmation" ConfirmationChanged="ConfirmDelete_Click"
-			 ConfirmationMessage=@($"آیا از حذف \"{bus.DriverName}\" مطمئنید؟")>
+			 ConfirmationMessage=@(Messages.UserMessages.DeleteConfirmation(bus.DriverName))>
 	</Confirm>
 </div>

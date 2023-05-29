@@ -1,7 +1,8 @@
 ﻿using ShuttleServiceManagementApp.Application.Abstractions.Messaging;
+using ShuttleServiceManagementApp.Application.ExtensionMethods;
 using ShuttleServiceManagementApp.Domain.DataAccess;
 using ShuttleServiceManagementApp.Domain.DataAccess.Repositories;
-using ShuttleServiceManagementApp.Domain.Exceptions;
+using ShuttleServiceManagementApp.Domain.Errors;
 using ShuttleServiceManagementApp.Domain.Shared;
 
 namespace ShuttleServiceManagementApp.Application.Commands.BusCommands.DeleteBus
@@ -18,12 +19,20 @@ namespace ShuttleServiceManagementApp.Application.Commands.BusCommands.DeleteBus
 		}
 		public async Task<Result> Handle(DeleteBusCommand request, CancellationToken cancellationToken)
 		{
-			var bus = await _busRepository.GetById(request.BusId);
-			if (bus == null)
-				throw new BusNotFoundException();
-			await _busRepository.Delete(bus);
-			await _unitOfWork.Complete();
-			return Result.Success();
+			try
+			{
+				var bus = await _busRepository.GetById(request.BusId);
+				if (bus == null)
+					return Result.Failure(Domain.Errors.DomainErrors.Bus.NotFound);
+				await _busRepository.Delete(bus);
+				await _unitOfWork.Complete();
+				return Result.Success();
+			}
+			catch (Exception ex)
+			{
+				var innerException = ex.FindInnerException();
+				return Result.Failure(new(ErrorCodes.UnHandledException, ex.Message));
+			}
 		}
 	}
 }

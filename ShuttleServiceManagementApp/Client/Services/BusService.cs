@@ -1,6 +1,7 @@
 ﻿using ShuttleServiceManagementApp.Client.Abstractions.Services;
-using ShuttleServiceManagementApp.Shared.Responses;
+using ShuttleServiceManagementApp.Domain.Shared;
 using ShuttleServiceManagementApp.Shared.Requests;
+using ShuttleServiceManagementApp.Shared.Responses;
 using System.Net.Http.Json;
 
 namespace ShuttleServiceManagementApp.Client.Services
@@ -18,16 +19,23 @@ namespace ShuttleServiceManagementApp.Client.Services
 
 		public event Action BusListChanged;
 
-		public async Task<Guid> CreateBus(RegisterBusRequest bus)
+		public async Task<Result> CreateBus(RegisterBusRequest bus)
 		{
 			var response = await _httpClient.PostAsJsonAsync<RegisterBusRequest>("api/bus", bus);
-			return await response.Content.ReadFromJsonAsync<Guid>();
+			return await GenerateResult(response);
 		}
 
-		public async Task<HttpResponseMessage> Delete(Guid id)
+		private static async Task<Result> GenerateResult(HttpResponseMessage response)
+		{
+			return response.IsSuccessStatusCode ?
+							Result.Success() :
+							Result.Failure(await response.Content.ReadFromJsonAsync<Error>());
+		}
+
+		public async Task<Result> Delete(Guid id)
 		{
 			var response = await _httpClient.DeleteAsync($"/api/bus/{id}");
-			return response;
+			return await GenerateResult(response);
 		}
 
 		public async Task GetBuses()
