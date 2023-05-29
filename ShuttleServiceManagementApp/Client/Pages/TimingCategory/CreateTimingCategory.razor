@@ -1,0 +1,19 @@
+﻿@page "/CreateTimingCategory"
+@using Client.Abstractions.Services;
+@inject ITimingCategoryService TimingCategoryService;
+@inject NavigationManager NavigationManager;
+@inject IDialogService DialogService;
+
+<div class="container mt-5" dir="rtl">
+    <h3 class="persian-font mb-10">افزودن شیفت </h3>
+    <EditForm Model="@timingCategory" OnValidSubmit="AddTimingCategory" dir="rtl">
+        <DataAnnotationsValidator></DataAnnotationsValidator>
+        <div class="mb-4">
+            <label for="title" class="persian-font">نام </label>
+            <InputText id="title" @bind-Value="@timingCategory.Title" class="form-control persian-font"></InputText>
+        </div>
+        <br />
+        <button type="submit" class="btn btn-primary float-start persian-font">ذخیره</button>
+    </EditForm>
+</div>
+

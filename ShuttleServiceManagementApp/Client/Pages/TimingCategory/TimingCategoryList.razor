@@ -1,0 +1,45 @@
+﻿@page "/timingCategoryList"
+@using ShuttleServiceManagementApp.Client.Abstractions.Services;
+@using ShuttleServiceManagementApp.Client.Components;
+@inject ITimingCategoryService TimingCategoryService;
+@inject IDialogService DialogService;
+@inject NavigationManager NavigationManager;
+@inject ISnackbar Snackbar;
+
+<div class="container mt-5 mb-lg-5" dir="rtl">
+    <h3 dir="rtl" class="persian-font">شیفت ها</h3>
+    <MudLink Href="/createTimingCategory" Class="btn btn-outline-primary  mt-10 mb-4 persian-font" >جدید</MudLink>
+    @if(TimingCategoryService.TimingCategories is null)
+    {
+        <p><em>Loading...</em></p>
+    }
+    else
+    {
+        <MudTable Elevation="25" Items="@TimingCategoryService.TimingCategories" Class="persian-font">
+            <ColGroup>
+                <col />
+                <col width="50px" />
+            </ColGroup>
+            <HeaderContent>
+                <MudTh>نام</MudTh>
+                <MudTh>عملیات</MudTh>
+            </HeaderContent>
+            <RowTemplate>
+                <MudTd DataLabel="نام">@context.Title</MudTd>
+                <MudTd DataLabel="">
+                    <MudFab @onclick="@(()=>Delete_Clicked(context.Id))" 
+                        Color="Color.Secondary" 
+                        StartIcon="@Icons.Material.Filled.Delete" 
+                        Size="@Size.Small" 
+                        IconSize="@Size.Small">
+                    </MudFab>
+                </MudTd>
+            </RowTemplate>
+        </MudTable>
+    }
+    <Confirm @ref="DeleteConfirmation" ConfirmationChanged="ConfirmDelete_Click"
+             ConfirmationMessage=@($"آیا از حذف شیفت \"{timingCategory.Title}\" مطمئنید؟")>
+    </Confirm>
+</div>
+
+

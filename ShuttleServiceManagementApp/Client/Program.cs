@@ -14,5 +14,6 @@ builder.Services.AddMudServices();
 builder.Services.AddSmart();
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 builder.Services.AddScoped<IBusService, BusService>();
+builder.Services.AddScoped<ITimingCategoryService, TimingCategoryService>();
 
 await builder.Build().RunAsync();
