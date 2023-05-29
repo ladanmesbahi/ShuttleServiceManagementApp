@@ -24,7 +24,9 @@ namespace ShuttleServiceManagementApp.Persistence.Repositories
 
         public async Task<IEnumerable<TimingCategory>> GetAll(CancellationToken cancellationToken)
         {
-            return _timingCategories.AsEnumerable();
+            return _timingCategories
+                .OrderBy(tc => tc.Title)
+                .AsEnumerable();
         }
 
         public async Task<TimingCategory> GetById(Guid id, CancellationToken cancellationToken = default)
